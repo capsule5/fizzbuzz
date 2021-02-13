@@ -1,0 +1,30 @@
+
+.requestWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chart{
+  display: flex;
+  align-items: center;
+}
+
+.bar{
+  margin:2px 0 5px 0;
+  background: lightgreen;
+  transition: width .4s;
+}
+
+.key{
+  overflow: hidden;
+
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.count{
+  font-size: 0.8em;
+  padding-left: 4px;
+}
+

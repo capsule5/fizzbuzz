@@ -15,7 +15,7 @@ const TextField: React.FC<Props> = ({ name, type, value }) => {
   return (
     <div className={ cn(styles.group) }>
       <div className={ cn(styles.line) }>
-        <label>{name}</label>
+        <label htmlFor={ name }>{name}</label>
         <input { ...field } />
       </div>
       {meta.touched && meta.error ? (
