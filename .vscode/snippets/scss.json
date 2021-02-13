@@ -1,0 +1,15 @@
+{
+  "media queries": {
+    "prefix": "mq",
+    "body": [
+      "@media (min-width: \\$screen-md) {",
+      "  // tablet",
+      "}",
+      "",
+      "@media (min-width: \\$screen-lg) {",
+      "  // desktop",
+      "}"
+    ],
+    "description": "media queries"
+  }
+}
