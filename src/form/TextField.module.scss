@@ -1,0 +1,20 @@
+
+.group{
+ margin-top: 20px;
+}
+.line{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  input{
+    width: 250px;
+    padding: 10px;
+    border: 1px solid grey;
+  }
+}
+.error{
+  color: red;
+  font-size: 0.8em;
+  text-align: left;
+}
