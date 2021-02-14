@@ -3,16 +3,18 @@ import { useFormik, FormikProvider } from 'formik'
 import * as Yup from 'yup'
 import cn from 'classnames'
 import { useSelector, useDispatch } from 'react-redux'
-import { set } from 'src/store/actions'
+import { setValues, pushRequest } from 'src/store/actions'
 import styles from './FbForm.module.scss'
 import TextField from './TextField'
 import { FbState } from '../../store/fbReducer'
 
 const FbForm = () => {
   const values = useSelector((state:FbState) => state.values)
+
   const dispatch = useDispatch()
   // const refLimit:any = Yup.ref('limit')
   const formikbag = useFormik({
+    enableReinitialize: true,
     initialValues: values,
     validationSchema: Yup.object({
       int1: Yup.number().integer().min(1).required(),
@@ -22,7 +24,8 @@ const FbForm = () => {
       string2: Yup.string().required(),
     }),
     onSubmit: (newValues) => {
-      dispatch(set(newValues))
+      dispatch(setValues(newValues))
+      dispatch(pushRequest(newValues))
     },
   })
   const {

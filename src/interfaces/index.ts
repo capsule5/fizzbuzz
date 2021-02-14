@@ -9,4 +9,5 @@ export interface StatType {
   key: string
   count: number
   perc: number
+  values:FbValuesType
 }

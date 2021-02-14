@@ -12,24 +12,27 @@ const initialState = {
   requests: [],
 }
 
-test('SET values', () => {
-  const payload1 = {
+test('SET_VALUES', () => {
+  const payload = {
     int1: 1,
     int2: 2,
     limit: 3,
     string1: 'fizz',
     string2: 'buzz',
   }
-  let action = { type: actions.SET, payload: payload1 }
-  const newState = { values: payload1, requests: [ payload1 ] }
+  const action = { type: actions.SET_VALUES, payload }
+  const newState = { ...initialState, values: payload }
   expect(fbReducer(initialState, action)).toEqual(newState)
-  const payload2 = {
-    int1: 4,
-    int2: 5,
-    limit: 6,
+})
+test('PUSH_REQUEST', () => {
+  const payload = {
+    int1: 1,
+    int2: 2,
+    limit: 3,
     string1: 'fizz',
     string2: 'buzz',
   }
-  action = { type: actions.SET, payload: payload2 }
-  expect(fbReducer(newState, action)).toEqual({ values: payload2, requests: [ payload1, payload2 ] })
+  const action = { type: actions.PUSH_REQUEST, payload }
+  const newState = { ...initialState, requests: [ payload ] }
+  expect(fbReducer(initialState, action)).toEqual(newState)
 })

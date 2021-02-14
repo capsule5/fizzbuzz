@@ -12,8 +12,8 @@ function App() {
         Mappy FizzBuzz
       </header>
       <FbForm />
-      <FbResult />
       <FbStats />
+      <FbResult />
     </div>
   )
 }

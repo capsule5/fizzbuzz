@@ -19,10 +19,15 @@ const initialState = {
 
 export const fbReducer = (state:FbState = initialState, action: Action) => {
   switch (action.type) {
-    case actions.SET: {
+    case actions.SET_VALUES: {
       return {
         ...state,
         values: { ...state.values, ...action.payload },
+      }
+    }
+    case actions.PUSH_REQUEST: {
+      return {
+        ...state,
         requests: [ ...state.requests, action.payload ],
       }
     }

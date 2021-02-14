@@ -33,13 +33,21 @@ export const getStats = createSelector(
     const totalRequests = requests.length
     const countByRequest = requests.reduce((acc:any, cur) => {
       const curKey = Object.values(cur).join('-')
-      acc[curKey] = acc[curKey] ? acc[curKey] + 1 : 1
+      if (acc[curKey]) {
+        acc[curKey].count = acc[curKey].count + 1
+      } else {
+        acc[curKey] = {
+          count: 1,
+          values: cur,
+        }
+      }
       return acc
     }, {})
 
     const requestStats = Object.entries(countByRequest)
-      .map(([ key, count ]:any) => ({
+      .map(([ key, { count, values } ]:any) => ({
         key,
+        values,
         count,
         perc: Math.round((count / totalRequests) * 100),
       }))
