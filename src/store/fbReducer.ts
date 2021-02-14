@@ -8,11 +8,11 @@ export interface FbState {
 
 const initialState = {
   values: {
-    int1: 7,
-    int2: 13,
-    limit: 100,
-    string1: 'fizz',
-    string2: 'buzz',
+    int1: undefined,
+    int2: undefined,
+    limit: undefined,
+    string1: '',
+    string2: '',
   },
   requests: [],
 }

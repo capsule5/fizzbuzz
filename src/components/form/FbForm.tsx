@@ -15,11 +15,9 @@ const FbForm = () => {
   const formikbag = useFormik({
     initialValues: values,
     validationSchema: Yup.object({
-      int1: Yup.number().integer().min(1)
-        .required(),
-      int2: Yup.number().integer().min(1)
-        .required(),
-      limit: Yup.number().integer().required(),
+      int1: Yup.number().integer().min(1).required(),
+      int2: Yup.number().integer().min(1).required(),
+      limit: Yup.number().integer().min(1).required(),
       string1: Yup.string().required(),
       string2: Yup.string().required(),
     }),
@@ -33,16 +31,18 @@ const FbForm = () => {
     }, handleSubmit,
   }:any = formikbag
   return (
-    <div className={ cn(styles.FbForm) }>
-      <FormikProvider value={ formikbag }>
-        <TextField name="int1" type="text" value={ int1 } />
-        <TextField name="int2" type="text" value={ int2 } />
-        <TextField name="limit" type="text" value={ limit } />
-        <TextField name="string1" type="text" value={ string1 } />
-        <TextField name="string2" type="text" value={ string2 } />
-        <button type="submit" onClick={ handleSubmit } className={ cn('cta') }>Submit</button>
-      </FormikProvider>
-    </div>
+    <section>
+      <div className={ cn(styles.FbForm) }>
+        <FormikProvider value={ formikbag }>
+          <TextField name="int1" type="text" value={ int1 } placeholder="1" />
+          <TextField name="int2" type="text" value={ int2 } placeholder="2" />
+          <TextField name="limit" type="text" value={ limit } placeholder="3" />
+          <TextField name="string1" type="text" value={ string1 } placeholder="fizz" />
+          <TextField name="string2" type="text" value={ string2 } placeholder="buzz" />
+          <button type="submit" onClick={ handleSubmit } className={ cn('cta') }>Submit</button>
+        </FormikProvider>
+      </div>
+    </section>
   )
 }
 

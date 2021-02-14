@@ -7,21 +7,28 @@ import styles from './FbStats.module.scss'
 
 const Fbstats = () => {
   const { requestStats, totalRequests } = useSelector(getStats)
+  
+  if (totalRequests === 0) {
+    return null
+  }
+    
   return (
-    <div className={ cn(styles.Fbstats) }>
-      {requestStats.map(({ key, count, perc }:StatType) => {
-        return (
-          <div key={ key }>
-            <div className={ cn(styles.chart) }>
-              <div className={ cn(styles.bar) } style={ { width: `${perc}%` } }>
-                <div className={ cn(styles.key) }>{key}</div>
+    <section>
+      <div className={ cn(styles.Fbstats) }>
+        {requestStats.map(({ key, count, perc }:StatType) => {
+          return (
+            <div key={ key }>
+              <div className={ cn(styles.chart) }>
+                <div className={ cn(styles.bar) } style={ { width: `${perc}%` } }>
+                  <div className={ cn(styles.key) }>{key}</div>
+                </div>
+                <div className={ cn(styles.count) }>{count}/{totalRequests}</div>
               </div>
-              <div className={ cn(styles.count) }>{count}/{totalRequests}</div>
             </div>
-          </div>
-        )
-      })}
-    </div>
+          )
+        })}
+      </div>
+    </section>
   )
 }
 

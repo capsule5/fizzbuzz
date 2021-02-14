@@ -1,7 +1,7 @@
 export interface FbValuesType {
-  int1: number
-  int2: number
-  limit: number
+  int1: number | undefined
+  int2: number | undefined
+  limit: number | undefined
   string1: string
   string2: string
 }

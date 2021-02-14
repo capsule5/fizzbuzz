@@ -1,9 +1,13 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import TestProvider from 'src/helpers/TestProvider'
 import App from './App'
 
-test('renders learn react link', () => {
-  render(<App />)
-  const linkElement = screen.getByText(/Mappy FizzBuzz/i)
-  expect(linkElement).toBeInTheDocument()
+test('App renders', () => {
+  render(
+    <TestProvider>
+      <App />
+    </TestProvider>,
+  )
+  expect(screen.getByText(/Mappy FizzBuzz/i)).toBeInTheDocument()
 })

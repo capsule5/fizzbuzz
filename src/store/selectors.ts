@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { isMultiple } from 'src/utils'
+import { isMultiple } from 'src/utils/math'
 import { FbState } from './fbReducer'
 
 
@@ -9,15 +9,17 @@ export const getResult = createSelector(
     int1, int2, limit, string1, string2,
   }) => {
     const result = []
-    for (let index = 1; index <= limit; index++) {
-      if (isMultiple(index, int1) && isMultiple(index, int2)) {
-        result.push(`${string1}${string2}`)
-      } else if (isMultiple(index, int1)) {
-        result.push(string1)
-      } else if (isMultiple(index, int2)) {
-        result.push(string2)
-      } else {
-        result.push(index)
+    if (int1 && int2 && limit) {
+      for (let index = 1; index <= limit; index++) {
+        if (isMultiple(index, int1) && isMultiple(index, int2)) {
+          result.push(`${string1}${string2}`)
+        } else if (isMultiple(index, int1)) {
+          result.push(string1)
+        } else if (isMultiple(index, int2)) {
+          result.push(string2)
+        } else {
+          result.push(index)
+        }
       }
     }
     return result

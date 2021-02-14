@@ -13,14 +13,15 @@
   margin:2px 0 5px 0;
   background: lightgreen;
   transition: width .4s;
+  padding: 5px;
 }
 
 .key{
   overflow: hidden;
-
   min-width: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 0.8em;
 }
 
 .count{

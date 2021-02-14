@@ -8,15 +8,17 @@ interface Props{
   name:string
   type:string
   value:string
+  placeholder?:string
 }
 
-const TextField: React.FC<Props> = ({ name, type, value }) => {
-  const [ field, meta ] = useField({ name, type, value })
+const TextField: React.FC<Props> = (props) => {
+  const { name } = props
+  const [ field, meta ] = useField(props)
   return (
     <div className={ cn(styles.group) }>
       <div className={ cn(styles.line) }>
         <label htmlFor={ name }>{name}</label>
-        <input { ...field } />
+        <input { ...field } { ...props } />
       </div>
       {meta.touched && meta.error ? (
         <div className={ styles.error }>{meta.error}</div>
