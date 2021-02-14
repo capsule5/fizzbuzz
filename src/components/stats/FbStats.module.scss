@@ -11,13 +11,20 @@
 
 .bar{
   margin:2px 0 5px 0;
-  background: lightgreen;
+  background: lightgrey;
   transition: width .4s;
   padding: 5px;
 
   &:hover{
-    background: darken(lightgreen, 7%);
+    background: darken(lightgrey, 7%);
     cursor: pointer;
+  }
+
+  &.active{
+    background: lightgreen;
+    &:hover{
+      background: darken(lightgreen, 7%);
+    }
   }
 }
 
