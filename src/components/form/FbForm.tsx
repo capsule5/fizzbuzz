@@ -10,7 +10,6 @@ import { FbState } from '../../store/fbReducer'
 
 const FbForm = () => {
   const values = useSelector((state:FbState) => state.values)
-
   const dispatch = useDispatch()
   // const refLimit:any = Yup.ref('limit')
   const formikbag = useFormik({
@@ -33,6 +32,7 @@ const FbForm = () => {
       int1, int2, limit, string1, string2,
     }, handleSubmit,
   }:any = formikbag
+  
   return (
     <section>
       <div className={ cn(styles.FbForm) }>

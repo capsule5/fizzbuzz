@@ -15,7 +15,6 @@ test('getResult', () => {
   expect(getResult(state)).toEqual([ 1, 'fizz', 3, 'fizz', 'buzz', 'fizz', 7, 'fizz', 9, 'fizzbuzz' ])
 })
 
-
 test('getStats', () => {
   const state = {
     values: {},

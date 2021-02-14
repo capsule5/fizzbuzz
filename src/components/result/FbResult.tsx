@@ -6,6 +6,8 @@ import styles from './FbResult.module.scss'
 
 const FbResult = () => {
   const result = useSelector(getResult)
+  // console.log(getResult.cache)
+  
   return result.length && (
     <section>
       <div className={ cn(styles.FbResult) }>

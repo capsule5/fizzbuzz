@@ -11,6 +11,7 @@ export const setValues = (values: FbValuesType): Action => ({
   type: actions.SET_VALUES,
   payload: values,
 })
+
 export const pushRequest = (values: FbValuesType): Action => ({
   type: actions.PUSH_REQUEST,
   payload: values,

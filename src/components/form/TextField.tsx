@@ -14,6 +14,7 @@ interface Props{
 const TextField: React.FC<Props> = (props) => {
   const { name } = props
   const [ field, meta ] = useField(props)
+  
   return (
     <div className={ cn(styles.group) }>
       <div className={ cn(styles.line) }>

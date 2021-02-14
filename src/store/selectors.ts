@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
+import { createCachedSelector } from 're-reselect'
 import { isMultiple } from 'src/utils/math'
 import { FbState } from './fbReducer'
 
-
-export const getResult = createSelector(
+export const getResult = createCachedSelector(
   (state:FbState) => state.values,
   ({
     int1, int2, limit, string1, string2,
@@ -24,7 +24,7 @@ export const getResult = createSelector(
     }
     return result
   },
-)
+)((state) => JSON.stringify(state.values))
 
 
 export const getStats = createSelector(
