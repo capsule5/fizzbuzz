@@ -10,4 +10,5 @@ export interface StatType {
   count: number
   perc: number
   values:FbValuesType
+  isCurrent:boolean
 }

@@ -4,11 +4,9 @@ import { getStats } from 'src/store/selectors'
 import { useSelector, useDispatch } from 'react-redux'
 import { StatType, FbValuesType } from 'src/interfaces'
 import { setValues } from 'src/store/actions'
-import { FbState } from 'src/store/fbReducer'
 import styles from './FbStats.module.scss'
 
 const Fbstats = () => {
-  const currentValues = useSelector((state:FbState) => state.values)
   const { requestStats, totalRequests } = useSelector(getStats)
   const dispatch = useDispatch()
 
@@ -24,9 +22,8 @@ const Fbstats = () => {
     <section>
       <div className={ cn(styles.Fbstats) }>
         {requestStats.map(({
-          key, count, perc, values,
+          key, count, perc, values, isCurrent,
         }:StatType) => {
-          const isCurrent = JSON.stringify(currentValues) === JSON.stringify(values)
           return (
             <div key={ key }>
               <div className={ cn(styles.chart) }>

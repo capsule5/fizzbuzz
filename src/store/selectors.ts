@@ -28,8 +28,9 @@ export const getResult = createCachedSelector(
 
 
 export const getStats = createSelector(
+  (state:FbState) => state.values,
   (state:FbState) => state.requests,
-  (requests) => {
+  (currentValues, requests) => {
     const totalRequests = requests.length
     const countByRequest = requests.reduce((acc:any, cur) => {
       const curKey = Object.values(cur).join('-')
@@ -50,6 +51,7 @@ export const getStats = createSelector(
         values,
         count,
         perc: Math.round((count / totalRequests) * 100),
+        isCurrent: JSON.stringify(currentValues) === JSON.stringify(values),
       }))
       .sort((a, b) => {
         return a.count < b.count ? 1 : a.count > b.count ? -1 : 0

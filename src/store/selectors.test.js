@@ -17,7 +17,13 @@ test('getResult', () => {
 
 test('getStats', () => {
   const state = {
-    values: {},
+    values: {
+      int1: 2,
+      int2: 5,
+      limit: 10,
+      string1: 'fizz',
+      string2: 'buzz',
+    },
     requests: [
       {
         int1: 2,
@@ -56,6 +62,7 @@ test('getStats', () => {
           string1: 'fizz',
           string2: 'buzz',
         },
+        isCurrent: true,
       },
       {
         count: 1,
@@ -68,6 +75,7 @@ test('getStats', () => {
           string1: 'fizzy',
           string2: 'buzzy',
         },
+        isCurrent: false,
       } ],
     totalRequests: 3,
   })
